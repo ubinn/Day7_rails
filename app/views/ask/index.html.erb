@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="text-center">
+        <a href="/ask/new" class="btn btn-primary"> 새질문 하기</a>
+    </div>
+    <br/>
+    <ul class="list-group">
+        <% @questions.reverse.each do |q| %>
+        <li class="list-group-item"><%= q.question %><small>(<%= q.ip_address %>, <%= q.region %>)</small>
+        <a class="btn btn-warning" href="/ask/<%= q.id %>"> 보기 </a>
+        <a class="btn btn-success" href="/ask/<%= q.id %>/edit"> 수정</a>
+        <a data-confirm="이 글을 삭제하시겠습니까?" href="/ask/<%= q.id %>/delete" class="btn btn-danger">삭제</a></li>
+        <% end %>
+    </ul>
+</div>
